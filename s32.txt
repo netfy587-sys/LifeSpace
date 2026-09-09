@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cuisine & Food Culture — A Table Set Around the Globe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF4E7;
+    --panel:#F1E4C8;
+    --charcoal:#2A2118;
+    --ink-soft:#5A4C3A;
+    --saffron:#D8A93B;
+    --brick:#A5382B;
+    --basil:#4C5E38;
+    --line:#E1CFA3;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--ivory);color:var(--charcoal);font-family:"Karla", sans-serif;line-height:1.75;font-size:17px;}
+  h1,h2,h3,.display{font-family:"Fraunces", serif;color:var(--charcoal);margin:0;line-height:1.1;}
+  p{margin:0 0 1em 0;max-width:64ch;color:var(--ink-soft);}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  :focus-visible{outline:3px solid var(--brick);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(30px,4.4vw,46px);font-weight:600;font-style:italic;}
+  .kicker{color:var(--brick);font-family:"Karla";font-weight:600;font-size:14.5px;letter-spacing:0.3px;margin-bottom:10px;display:block;}
+
+  .hero{position:relative;background:var(--brick);color:var(--ivory);overflow:hidden;padding:104px 0 74px;}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 0.8fr;gap:44px;align-items:center;}
+  .hero h1{color:var(--white);font-size:clamp(40px,6.2vw,66px);font-weight:700;}
+  .hero h1 em{color:var(--saffron);font-style:italic;}
+  .hero p.lede{color:#F3DCC7;font-family:"Karla";font-size:18.5px;max-width:52ch;margin-top:20px;}
+  .menu-frame{border:1px solid rgba(255,255,255,0.4);padding:26px;position:relative;}
+  .menu-frame span.eyebrow{font-family:"Fraunces";font-style:italic;font-size:15px;color:var(--saffron);display:block;margin-bottom:10px;}
+  .menu-frame p{color:#F3DCC7;font-size:14.5px;margin:0;}
+
+  .intro{padding:54px 0;border-bottom:1px solid var(--line);}
+  .intro .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .intro-item h3{font-size:18px;margin-bottom:8px;font-style:italic;}
+  .intro-item p{font-size:15.5px;margin:0;}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  .cat-card{background:var(--ivory);padding:34px 30px;}
+  .cat-card .icon{width:44px;height:44px;color:var(--brick);margin-bottom:18px;}
+  .cat-card h3{font-size:20px;margin-bottom:10px;}
+  .cat-card p{font-size:15.5px;margin:0;}
+
+  /* menu-style dish rows with leader dots */
+  .dish-row{padding:30px 0;border-bottom:1px solid var(--line);}
+  .dish-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;}
+  .dish-head h3{font-size:23px;white-space:nowrap;}
+  .dish-head .dots{flex:1;border-bottom:1px dotted var(--line);height:10px;}
+  .dish-head .region{font-family:"Karla";font-weight:600;font-size:13px;color:var(--brick);white-space:nowrap;}
+  .dish-row p{font-size:16px;}
+
+  .timeline{position:relative;margin-top:20px;padding-left:36px;border-left:3px solid var(--saffron);}
+  .t-item{position:relative;padding-bottom:44px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{content:"";position:absolute;left:-45px;top:4px;width:15px;height:15px;border-radius:50%;background:var(--brick);border:3px solid var(--ivory);box-shadow:0 0 0 2px var(--saffron);}
+  .t-year{font-family:"Karla";color:var(--brick);font-weight:700;font-size:17px;display:block;margin-bottom:4px;}
+  .t-item h4{font-family:"Fraunces";font-style:italic;font-size:19px;color:var(--charcoal);margin:0 0 6px 0;}
+  .t-item p{font-size:15.5px;margin:0;}
+
+  .benefits-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);}
+  .benefit-col{padding:40px 36px;}
+  .benefit-col + .benefit-col{border-left:1px solid var(--line);}
+  .benefit-col h3{font-size:21px;margin-bottom:18px;font-style:italic;}
+  .benefit-col ul{margin:0;padding:0;list-style:none;}
+  .benefit-col li{padding:12px 0;border-bottom:1px dashed var(--line);font-size:16px;color:var(--ink-soft);display:flex;gap:12px;}
+  .benefit-col li:last-child{border-bottom:none;}
+  .benefit-col li svg{width:18px;height:18px;flex-shrink:0;margin-top:4px;color:var(--brick);}
+
+  .player-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  .player-card{background:var(--white);border:1px solid var(--line);padding:26px 28px;}
+  .player-card .tagpill{font-family:"Karla";font-weight:600;font-size:12.5px;color:var(--brick);background:var(--panel);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px;}
+  .player-card h4{font-family:"Fraunces";font-style:italic;font-size:19px;color:var(--charcoal);margin:0 0 8px 0;}
+  .player-card p{font-size:15.5px;margin:0;}
+
+  .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .fact-card{background:var(--basil);color:var(--ivory);border-radius:10px;padding:24px 20px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;}
+  .fact-card:nth-child(2n){background:var(--brick);}
+  .fact-card:nth-child(3n){background:#7A5A24;}
+  .fact-card p{color:inherit;font-size:14.5px;margin:0;opacity:0.95;}
+
+  .glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);}
+  .g-item{padding:18px 0;border-bottom:1px solid var(--line);padding-right:30px;}
+  .g-item dt{font-family:"Fraunces";font-style:italic;font-size:16px;color:var(--charcoal);font-weight:600;}
+  .g-item dd{margin:4px 0 0 0;font-size:15px;color:var(--ink-soft);}
+
+  footer{background:#3A2A1D;color:#D8C6A8;padding:50px 0 34px;font-size:14.5px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center;}
+  footer .brand{color:var(--white);font-family:"Fraunces";font-style:italic;font-size:18px;}
+
+  @media (max-width: 860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .intro .wrap{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr;}
+    .benefits-wrap{grid-template-columns:1fr;}
+    .benefit-col + .benefit-col{border-left:none;border-top:1px solid var(--line);}
+    .player-grid{grid-template-columns:1fr;}
+    .facts-grid{grid-template-columns:1fr 1fr;}
+    .glossary{grid-template-columns:1fr;}
+    .dish-head{flex-wrap:wrap;}
+    .dish-head .dots{display:none;}
+    section{padding:56px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>A table set<br><em>around the globe</em></h1>
+      <p class="lede">Every dish carries a bit of geography, history, and habit inside it. This page walks through how the world eats — the ingredients, the techniques, and the traditions passed down through kitchens.</p>
+    </div>
+    <div class="menu-frame">
+      <span class="eyebrow">A note before you begin</span>
+      <p>Food culture isn't just recipes — it's climate, trade routes, religion, and family, all showing up on one plate.</p>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="intro-item">
+      <h3>What's on this page</h3>
+      <p>Regional cuisines, cooking techniques, spices, a short history of food, and a few names who shaped how the world cooks.</p>
+    </div>
+    <div class="intro-item">
+      <h3>Who it's for</h3>
+      <p>Home cooks, curious eaters, or anyone who wants to understand why a dish tastes the way it does.</p>
+    </div>
+    <div class="intro-item">
+      <h3>How to read it</h3>
+      <p>Start with the regions, move through techniques and spices, then follow food history from farming to the present day.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Where flavour comes from</span>
+      <h2>Three things that shape a cuisine</h2>
+      <p>No dish exists in isolation — it's shaped by what grows nearby, what's been traded in, and what's been carried forward from generation to generation.</p>
+    </div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M32 12 Q20 20 20 34 Q20 48 32 52 Q44 48 44 34 Q44 20 32 12 Z"/><path d="M32 22 L32 44"/></svg>
+      <h3>Local geography</h3>
+      <p>Rice paddies, wheat fields, coastlines, and mountains all decide what a region can grow or catch — and that becomes the backbone of its cooking.</p>
+    </div>
+    <div class="cat-card">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 32 Q32 12 52 32"/><path d="M12 32 Q32 52 52 32"/><circle cx="32" cy="32" r="4" fill="currentColor" stroke="none"/></svg>
+      <h3>Trade & migration</h3>
+      <p>Spices, chillies, and even entire crops moved across oceans through trade and migration, quietly reshaping cuisines far from where those ingredients began.</p>
+    </div>
+    <div class="cat-card">
+      <svg class="icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 16 L20 48 M44 16 L44 48 M20 30 L44 30"/></svg>
+      <h3>Family & ritual</h3>
+      <p>Recipes are often taught, not written down — passed between generations through festivals, Sunday meals, and the daily rhythm of a household kitchen.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;background:var(--panel);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">A tour of the table</span>
+      <h2>Signature dishes, region by region</h2>
+      <p>A small, far-from-complete sampling of dishes that define how each region eats.</p>
+    </div>
+
+    <div class="dish-row">
+      <div class="dish-head"><h3>Ramen</h3><span class="dots"></span><span class="region">East Asia — Japan</span></div>
+      <p>A noodle soup built on a slow-simmered broth — often pork bone, chicken, or miso-based — topped with sliced pork, soft-boiled egg, and seaweed. Though it traces back to Chinese wheat noodles, ramen became a distinctly Japanese comfort food over the 20th century.</p>
+    </div>
+    <div class="dish-row">
+      <div class="dish-head"><h3>Paella</h3><span class="dots"></span><span class="region">Southern Europe — Spain</span></div>
+      <p>A saffron-coloured rice dish from Valencia, traditionally cooked over an open flame in a wide, shallow pan, mixing rice with vegetables, seafood, or meat depending on the region and season.</p>
+    </div>
+    <div class="dish-row">
+      <div class="dish-head"><h3>Tacos al pastor</h3><span class="dots"></span><span class="region">The Americas — Mexico</span></div>
+      <p>Marinated pork, cooked on a vertical spit, sliced thin, and served on a small corn tortilla with pineapple, onion, and cilantro — a dish that itself blends Mexican tradition with techniques brought by Lebanese immigrants in the 20th century.</p>
+    </div>
+    <div class="dish-row">
+      <div class="dish-head"><h3>Butter chicken</h3><span class="dots"></span><span class="region">South Asia — India</span></div>
+      <p>Tandoor-roasted chicken simmered in a rich tomato and butter gravy, invented in Delhi in the 1950s as a way to use up leftover tandoori chicken by cooking it in a creamy sauce.</p>
+    </div>
+    <div class="dish-row">
+      <div class="dish-head"><h3>Jollof rice</h3><span class="dots"></span><span class="region">West Africa</span></div>
+      <p>A one-pot rice dish cooked in a tomato and pepper base, claimed with great pride by several West African nations, each with their own version and their own strong opinion on whose is best.</p>
+    </div>
+    <div class="dish-row" style="border-bottom:none;">
+      <div class="dish-head"><h3>Hummus & mezze</h3><span class="dots"></span><span class="region">The Middle East</span></div>
+      <p>A spread of small dishes — hummus, baba ghanoush, tabbouleh, and flatbread — built around sharing, and often served as the opening act of a much longer meal.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">The craft behind the plate</span>
+      <h2>Cooking techniques from around the world</h2>
+      <p>Many techniques developed independently in different regions, often solving the same problem — preserving food, tenderising it, or drawing out flavour — in very different ways.</p>
+    </div>
+    <div class="cat-grid" style="grid-template-columns:repeat(2,1fr);">
+      <div class="cat-card">
+        <h3>Fermentation</h3>
+        <p>Used in kimchi, sourdough bread, miso, and yoghurt, fermentation relies on bacteria or yeast to preserve food and build deep, complex flavour over time.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Tandoor roasting</h3>
+        <p>A clay oven that reaches extremely high temperatures, traditionally used across South and Central Asia to roast meat and bake flatbreads like naan almost instantly.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Stir-frying</h3>
+        <p>A quick, high-heat technique from Chinese cooking that cooks ingredients fast in a wok, keeping vegetables crisp and flavours bright.</p>
+      </div>
+      <div class="cat-card">
+        <h3>Slow braising</h3>
+        <p>Common in French and many other cuisines, braising cooks tougher cuts of meat slowly in liquid, breaking them down into something tender over several hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--panel);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">From field to plate</span>
+      <h2>A short history of food</h2>
+      <p>How eating went from foraging to farming to a genuinely global exchange of ingredients.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-year">c. 10,000 BCE</span>
+        <h4>The start of agriculture</h4>
+        <p>Communities in the Fertile Crescent began deliberately planting and harvesting crops, moving away from a purely hunter-gatherer way of life.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">c. 1st century BCE – 1400s CE</span>
+        <h4>The spice trade</h4>
+        <p>Routes connecting Asia, the Middle East, and Europe carried pepper, cinnamon, and cloves across continents, making spices some of the most valuable goods in the ancient world.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">1492 onward</span>
+        <h4>The Columbian Exchange</h4>
+        <p>Contact between the Americas and Europe moved tomatoes, potatoes, and chillies eastward, and wheat and livestock westward — reshaping cuisines on both sides of the Atlantic.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">1800s</span>
+        <h4>Canning and food preservation</h4>
+        <p>New preservation methods let food travel further and last longer, changing both military logistics and everyday home cooking.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">1950s</span>
+        <h4>The rise of fast food</h4>
+        <p>Standardised, quickly prepared meals scaled into global chains, changing how — and how often — many people eat outside the home.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-year">Today</span>
+        <h4>A genuinely global kitchen</h4>
+        <p>Fusion cooking, food delivery apps, and easy access to ingredients from anywhere have made most home kitchens more globally connected than ever before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Beyond taste</span>
+      <h2>Why food culture matters</h2>
+      <p>Sharing meals does more than satisfy hunger — it shapes identity, memory, and community.</p>
+    </div>
+    <div class="benefits-wrap">
+      <div class="benefit-col">
+        <h3>What food carries</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> A region's history and geography</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> Family memory and tradition</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> Religious and cultural practice</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> A sense of national or regional identity</li>
+        </ul>
+      </div>
+      <div class="benefit-col">
+        <h3>Why sharing meals matters</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> Builds and strengthens relationships</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> Marks celebrations and milestones</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> Passes skills down between generations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12 L10 18 L20 6"/></svg> Introduces people to unfamiliar cultures</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--panel);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Names in the kitchen</span>
+      <h2>A few figures who shaped how we cook</h2>
+    </div>
+    <div class="player-grid">
+      <div class="player-card">
+        <span class="tagpill">French cuisine</span>
+        <h4>Auguste Escoffier</h4>
+        <p>French chef who modernised and organised classical French cooking, and whose kitchen brigade system is still used in professional kitchens today.</p>
+      </div>
+      <div class="player-card">
+        <span class="tagpill">Home cooking</span>
+        <h4>Julia Child</h4>
+        <p>American chef and author who introduced French cooking to home cooks in the United States through her books and television programmes.</p>
+      </div>
+      <div class="player-card">
+        <span class="tagpill">Japanese cuisine</span>
+        <h4>Jiro Ono</h4>
+        <p>Japanese sushi chef whose decades of dedication to a single craft made him one of the most respected figures in Japanese culinary tradition.</p>
+      </div>
+      <div class="player-card">
+        <span class="tagpill">Indian cuisine</span>
+        <h4>Tarla Dalal</h4>
+        <p>Indian cookbook author whose vegetarian recipes and cooking shows shaped how millions of Indian households approached everyday cooking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Small bites</span>
+      <h2>Interesting facts about food</h2>
+    </div>
+    <div class="facts-grid">
+      <div class="fact-card"><p>Honey found in ancient Egyptian tombs, thousands of years old, has been found still perfectly edible.</p></div>
+      <div class="fact-card"><p>Chilli peppers weren't part of Indian, Thai, or Korean cooking until they arrived from the Americas after 1492.</p></div>
+      <div class="fact-card"><p>Saffron is the world's most expensive spice by weight, since each flower yields only three tiny threads.</p></div>
+      <div class="fact-card"><p>Ketchup started out in China as a fermented fish sauce, long before tomatoes were ever added to it.</p></div>
+      <div class="fact-card"><p>A single vanilla orchid flower must be hand-pollinated within hours of blooming, which is part of why real vanilla is so costly.</p></div>
+      <div class="fact-card"><p>Pizza Margherita is said to have been named after Queen Margherita of Italy in 1889, its colours matching the Italian flag.</p></div>
+      <div class="fact-card"><p>The world's hottest chilli peppers, like the Carolina Reaper, are measured on a scale originally developed in 1912.</p></div>
+      <div class="fact-card"><p>Rice feeds more people worldwide than any other single crop, forming a staple food for over half the global population.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--panel);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Kitchen vocabulary</span>
+      <h2>A short glossary of cooking terms</h2>
+    </div>
+    <dl class="glossary">
+      <div class="g-item"><dt>Umami</dt><dd>Often called the "fifth taste," a savoury flavour found in ingredients like soy sauce, mushrooms, and aged cheese.</dd></div>
+      <div class="g-item"><dt>Mise en place</dt><dd>A French term meaning "everything in its place" — preparing and organising ingredients before cooking begins.</dd></div>
+      <div class="g-item"><dt>Deglaze</dt><dd>Adding liquid to a hot pan to lift browned bits of food stuck to the bottom, usually to build a sauce.</dd></div>
+      <div class="g-item"><dt>Marinate</dt><dd>Soaking food, usually meat, in a seasoned liquid before cooking to add flavour or tenderness.</dd></div>
+      <div class="g-item"><dt>Al dente</dt><dd>An Italian term describing pasta or rice cooked until just firm to the bite, not soft all the way through.</dd></div>
+      <div class="g-item"><dt>Reduction</dt><dd>A sauce or liquid simmered until some of it evaporates, concentrating its flavour.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="brand">World Cuisine & Food Culture</span>
+    <span>Built purely for general information.</span>
+  </div>
+</footer>
+
+</body>
+</html>
